@@ -26,11 +26,11 @@ app.get('/api/colleges', async (req, res) => {
 // 2. AUTHENTICATION
 app.post('/api/auth/register', async (req, res) => {
   const { email, password, name, role, college_id } = req.body;
-  
+
   // Check if email exists
   const { data: existingUser } = await supabase.from('users').select('id').eq('email', email).single();
   if (existingUser) {
-    return res.status(400).json({ error: 'Email already exists in the shadows' });
+    return res.status(400).json({ error: 'Email already exists.' });
   }
 
   const newUser = {
@@ -44,13 +44,13 @@ app.post('/api/auth/register', async (req, res) => {
 
   const { data, error } = await supabase.from('users').insert([newUser]).select().single();
   if (error) return res.status(500).json({ error: error.message });
-  
+
   return res.status(201).json(data);
 });
 
 app.post('/api/auth/login', async (req, res) => {
   const { email, password } = req.body;
-  
+
   const { data: user, error } = await supabase
     .from('users')
     .select('*')
@@ -61,7 +61,7 @@ app.post('/api/auth/login', async (req, res) => {
   if (error || !user) {
     return res.status(401).json({ error: 'Invalid credentials. The spirits reject you.' });
   }
-  
+
   return res.json(user);
 });
 
@@ -69,49 +69,49 @@ app.post('/api/auth/login', async (req, res) => {
 app.get('/api/notices', async (req, res) => {
   const { college_id } = req.query;
   let query = supabase.from('notices').select('*').order('created_at', { ascending: false });
-  
+
   if (college_id) {
     query = query.eq('college_id', college_id);
   }
-  
+
   const { data, error } = await query;
   if (error) return res.status(500).json({ error: error.message });
-  
+
   return res.json(data);
 });
 
 app.post('/api/notices', async (req, res) => {
   const { title, content, is_urgent, college_id, author_id } = req.body;
-  
+
   const { data, error } = await supabase
     .from('notices')
     .insert([{ title, content, is_urgent, college_id, author_id }])
     .select()
     .single();
-    
+
   if (error) return res.status(500).json({ error: error.message });
   return res.status(201).json(data);
 });
 
 app.delete('/api/notices/:id', async (req, res) => {
   const { id } = req.params;
-  
+
   const { error } = await supabase.from('notices').delete().eq('id', id);
   if (error) return res.status(500).json({ error: error.message });
-  
+
   return res.json({ success: true });
 });
 
 // 4. COMMENTS
 app.get('/api/notices/:id/comments', async (req, res) => {
   const { id } = req.params;
-  
+
   const { data, error } = await supabase
     .from('comments')
     .select('*')
     .eq('notice_id', id)
     .order('created_at', { ascending: true });
-    
+
   if (error) return res.status(500).json({ error: error.message });
   return res.json(data);
 });
@@ -119,13 +119,13 @@ app.get('/api/notices/:id/comments', async (req, res) => {
 app.post('/api/notices/:id/comments', async (req, res) => {
   const { id } = req.params;
   const { user_id, user_name, content } = req.body;
-  
+
   const { data, error } = await supabase
     .from('comments')
     .insert([{ notice_id: id, user_id, user_name, content }])
     .select()
     .single();
-    
+
   if (error) return res.status(500).json({ error: error.message });
   return res.status(201).json(data);
 });

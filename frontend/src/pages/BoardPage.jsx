@@ -103,7 +103,7 @@ export default function BoardPage() {
       <div className="form-container" style={{ textAlign: 'center' }}>
         <h2 className="auth-title" style={{ color: 'var(--bright-red)' }}>Forbidden Territory</h2>
         <p style={{ color: '#ccc', marginBottom: '2rem' }}>You must log in to access the Notice Board.</p>
-        <Link to="/login" className="btn btn-large">Enter the Crypt (Login)</Link>
+        <Link to="/login" className="btn btn-large">Login</Link>
       </div>
     </div>
   );
@@ -121,7 +121,7 @@ export default function BoardPage() {
       <main className="main-content">
         {canPost && (
           <section className="form-container">
-            <h2>Post a New Decree</h2>
+            <h2>Post a New Decree(Notice)</h2>
             <form onSubmit={handleSubmit}>
               <div className="form-group">
                 <label>Decree Title</label>
@@ -175,7 +175,7 @@ export default function BoardPage() {
                       {activeComments[notice.id].length === 0 && <p className="comment-empty">No whispers yet.</p>}
 
                       <div className="comment-input-group">
-                        <input type="text" placeholder="Whisper your thoughts..." className="comment-input" value={newComment} onChange={e => setNewComment(e.target.value)} />
+                        <input type="text" placeholder="Add a comment..." className="comment-input" value={newComment} onChange={e => setNewComment(e.target.value)} />
                         <button className="btn comment-btn" onClick={() => submitComment(notice.id)}>Send</button>
                       </div>
                     </div>

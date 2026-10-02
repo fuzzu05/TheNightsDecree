@@ -9,7 +9,7 @@ export default function LoginPage() {
   const [error, setError] = useState('');
 
   useEffect(() => {
-    document.title = "Enter the Crypt - The Night's Decree";
+    document.title = "Login - The Night's Decree";
   }, []);
 
   // Redirect if already authenticated
@@ -29,7 +29,7 @@ export default function LoginPage() {
   return (
     <div className="container auth-container">
       <div className="form-container">
-        <h2 className="auth-title">Enter the Crypt</h2>
+        <h2 className="auth-title">Login</h2>
         {error && <p className="error-text">{error}</p>}
         <form onSubmit={handleSubmit}>
           <div className="form-group">

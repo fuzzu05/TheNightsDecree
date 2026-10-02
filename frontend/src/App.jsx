@@ -19,9 +19,6 @@ function App() {
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/board" element={<BoardPage />} />
         </Routes>
-        <div className="global-footer">
-          Made with ❤️ by <a href="https://www.linkedin.com/in/fuzail-a-khan/" target="_blank" rel="noopener noreferrer" className="creator-link">Fuzail Aqdas Khan</a>
-        </div>
       </AuthProvider>
     </Router>
   )

@@ -16,7 +16,7 @@ export default function RegisterPage() {
   const [error, setError] = useState('');
 
   useEffect(() => {
-    document.title = "Join the Damned - The Night's Decree";
+    document.title = "Register - The Night's Decree";
   }, []);
 
   useEffect(() => {
