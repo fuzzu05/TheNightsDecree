@@ -14,6 +14,10 @@ export default function BoardPage() {
 
   const API_URL = `${import.meta.env.VITE_API_URL}/notices`;
 
+  useEffect(() => {
+    document.title = "The Notice Board - The Night's Decree";
+  }, []);
+
   const fetchNotices = async () => {
     try {
       const response = await fetch(`${API_URL}?college_id=${user.college_id}`);

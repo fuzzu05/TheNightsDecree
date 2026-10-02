@@ -16,6 +16,10 @@ export default function RegisterPage() {
   const [error, setError] = useState('');
 
   useEffect(() => {
+    document.title = "Join the Damned - The Night's Decree";
+  }, []);
+
+  useEffect(() => {
     fetch(`${import.meta.env.VITE_API_URL}/colleges`)
       .then(res => res.json())
       .then(data => {

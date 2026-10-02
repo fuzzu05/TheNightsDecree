@@ -1,9 +1,13 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import { AuthContext } from '../AuthContext';
 
 export default function LandingPage() {
   const { user } = useContext(AuthContext);
+
+  useEffect(() => {
+    document.title = "Home - The Night's Decree";
+  }, []);
 
   // If already logged in, no need to see the landing page
   if (user) {

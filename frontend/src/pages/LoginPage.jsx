@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { AuthContext } from '../AuthContext';
 import { Link, Navigate } from 'react-router-dom';
 
@@ -7,6 +7,10 @@ export default function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+
+  useEffect(() => {
+    document.title = "Enter the Crypt - The Night's Decree";
+  }, []);
 
   // Redirect if already authenticated
   if (user) {
