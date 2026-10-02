@@ -19,7 +19,7 @@ export default function LandingPage() {
       <header className="header landing-header">
         <h1 className="landing-title">Night's Decree</h1>
         <p className="landing-subtitle">
-          The Ultimate Platform for Immortal Academics
+          The Ultimate Platform for Immortal Academics (Notice Board)
         </p>
       </header>
 

@@ -5,7 +5,7 @@ import { Link, Navigate } from 'react-router-dom';
 export default function RegisterPage() {
   const { register, user } = useContext(AuthContext);
   const [colleges, setColleges] = useState([]);
-  
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -45,26 +45,26 @@ export default function RegisterPage() {
   return (
     <div className="container auth-container-wide">
       <div className="form-container">
-        <h2 className="auth-title">Join the Coven</h2>
+        <h2 className="auth-title">Join the Coven(Register)</h2>
         {error && <p className="error-text">{error}</p>}
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label>Full Name</label>
-            <input type="text" value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})} required />
+            <input type="text" value={formData.name} onChange={e => setFormData({ ...formData, name: e.target.value })} required />
           </div>
           <div className="form-group">
             <label>Email</label>
-            <input type="email" value={formData.email} onChange={e => setFormData({...formData, email: e.target.value})} required />
+            <input type="email" value={formData.email} onChange={e => setFormData({ ...formData, email: e.target.value })} required />
           </div>
           <div className="form-group">
             <label>Password</label>
-            <input type="password" value={formData.password} onChange={e => setFormData({...formData, password: e.target.value})} required />
+            <input type="password" value={formData.password} onChange={e => setFormData({ ...formData, password: e.target.value })} required />
           </div>
           <div className="form-group">
             <label>Role</label>
-            <select 
-              value={formData.role} 
-              onChange={e => setFormData({...formData, role: e.target.value})}
+            <select
+              value={formData.role}
+              onChange={e => setFormData({ ...formData, role: e.target.value })}
             >
               <option value="student">Student</option>
               <option value="teacher">Teacher / Admin</option>
@@ -72,9 +72,9 @@ export default function RegisterPage() {
           </div>
           <div className="form-group">
             <label>College / Academy</label>
-            <select 
-              value={formData.college_id} 
-              onChange={e => setFormData({...formData, college_id: e.target.value})}
+            <select
+              value={formData.college_id}
+              onChange={e => setFormData({ ...formData, college_id: e.target.value })}
             >
               {colleges.map(c => (
                 <option key={c.id} value={c.id}>{c.name}</option>
