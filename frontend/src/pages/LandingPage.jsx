@@ -16,7 +16,7 @@ export default function LandingPage() {
 
   return (
     <div className="landing-container">
-      <header className="header landing-header">
+      <header className="landing-header">
         <h1 className="landing-title">College Notice Board</h1>
         <p className="landing-subtitle">
           The Ultimate Platform for Students & Faculty
