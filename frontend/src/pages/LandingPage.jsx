@@ -6,7 +6,7 @@ export default function LandingPage() {
   const { user } = useContext(AuthContext);
 
   useEffect(() => {
-    document.title = "Home - The Night's Decree";
+    document.title = "Home - College Notice Board";
   }, []);
 
   // If already logged in, no need to see the landing page
@@ -17,18 +17,18 @@ export default function LandingPage() {
   return (
     <div className="landing-container">
       <header className="header landing-header">
-        <h1 className="landing-title">Night's Decree</h1>
+        <h1 className="landing-title">College Notice Board</h1>
         <p className="landing-subtitle">
-          The Ultimate Platform for Immortal Academics (Notice Board)
+          The Ultimate Platform for Students & Faculty
         </p>
       </header>
 
       <div className="landing-buttons">
         <Link to="/login" className="btn btn-large">
-          Enter the Crypt (Login)
+          Login
         </Link>
         <Link to="/register" className="btn btn-large btn-outline">
-          Join the Coven (Register)
+          Register
         </Link>
       </div>
     </div>

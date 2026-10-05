@@ -133,11 +133,11 @@ app.post('/api/notices/:id/comments', async (req, res) => {
 // Easter Egg Route (Also used by the ping bot to keep the server awake)
 app.get('/', (req, res) => {
   res.send(`
-    <div style="font-family: sans-serif; text-align: center; margin-top: 20vh; background-color: #000; color: #fff; height: 100vh; padding-top: 50px;">
-      <h1 style="color: #8a0303;">The Night's Decree</h1>
+    <div style="font-family: sans-serif; text-align: center; margin-top: 20vh; background-color: #f5f5f5; color: #333; height: 100vh; padding-top: 50px;">
+      <h1 style="color: #333;">College Notice Board</h1>
       <p style="font-size: 1.2rem;">
         A product under <strong>ActenX</strong> developed by 
-        <a href="https://www.linkedin.com/in/fuzail-a-khan/" target="_blank" style="color: #d10000; text-decoration: none; font-weight: bold;">
+        <a href="https://www.linkedin.com/in/fuzail-a-khan/" target="_blank" style="color: #0056b3; text-decoration: none; font-weight: bold;">
           Fuzail Aqdas Khan
         </a>
       </p>

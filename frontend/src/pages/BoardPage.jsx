@@ -15,7 +15,7 @@ export default function BoardPage() {
   const API_URL = `${import.meta.env.VITE_API_URL}/notices`;
 
   useEffect(() => {
-    document.title = "The Notice Board - The Night's Decree";
+    document.title = "The Notice Board - College Notice Board";
   }, []);
 
   const fetchNotices = async () => {
@@ -114,28 +114,28 @@ export default function BoardPage() {
     <div className="container">
       <header className="header" style={{ position: 'relative' }}>
         <button onClick={logout} className="btn-delete" style={{ position: 'absolute', top: 0, right: 0 }}>Logout</button>
-        <h1>Night's Decree</h1>
+        <h1>College Notice Board</h1>
         <p>Welcome, {user.name} | Role: {user.role.toUpperCase()}</p>
       </header>
 
       <main className="main-content">
         {canPost && (
           <section className="form-container">
-            <h2>Post a New Decree(Notice)</h2>
+            <h2>Post a New Notice</h2>
             <form onSubmit={handleSubmit}>
               <div className="form-group">
-                <label>Decree Title</label>
+                <label>Notice Title</label>
                 <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} required />
               </div>
               <div className="form-group">
-                <label>Message from the Shadows</label>
+                <label>Message Content</label>
                 <textarea rows="3" value={content} onChange={(e) => setContent(e.target.value)} required ></textarea>
               </div>
               <div className="form-group checkbox-group">
                 <input type="checkbox" id="urgent" checked={isUrgent} onChange={(e) => setIsUrgent(e.target.checked)} />
-                <label htmlFor="urgent" style={{ margin: 0 }}>Mark as Urgent (Blood Priority)</label>
+                <label htmlFor="urgent" style={{ margin: 0 }}>Mark as Urgent</label>
               </div>
-              <button type="submit" className="btn">Publish Decree</button>
+              <button type="submit" className="btn">Publish Notice</button>
             </form>
           </section>
         )}

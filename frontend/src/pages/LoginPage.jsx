@@ -29,7 +29,7 @@ export default function LoginPage() {
   return (
     <div className="container auth-container">
       <div className="form-container">
-        <h2 className="auth-title">Enter the Crypt(Login)</h2>
+        <h2 className="auth-title">Login</h2>
         {error && <p className="error-text">{error}</p>}
         <form onSubmit={handleSubmit}>
           <div className="form-group">

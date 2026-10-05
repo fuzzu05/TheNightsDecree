@@ -45,7 +45,7 @@ export default function RegisterPage() {
   return (
     <div className="container auth-container-wide">
       <div className="form-container">
-        <h2 className="auth-title">Join the Coven(Register)</h2>
+        <h2 className="auth-title">Register</h2>
         {error && <p className="error-text">{error}</p>}
         <form onSubmit={handleSubmit}>
           <div className="form-group">
